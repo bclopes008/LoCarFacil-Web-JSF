@@ -5,6 +5,7 @@
  */
 package br.senac.pi4.DAO;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -22,11 +23,14 @@ public class Aluguel {
     private String horaDevolucao;
     private String grupo;
     private boolean protecao;
-    private boolean bbConf;
-    private boolean assElev;
-    private boolean cadBB;
+    private int bbConf;
+    private int assElev;
+    private int cadBB;
     private boolean gps;
     private String selectAcessorios;
+    private BigDecimal valorBbConf;
+    private BigDecimal valorAssElev;
+    private BigDecimal valorCadBB;
 
     public Aluguel() {
     }
@@ -103,27 +107,27 @@ public class Aluguel {
         this.protecao = protecao;
     }
 
-    public boolean getBbConf() {
+    public int getBbConf() {
         return bbConf;
     }
 
-    public void setBbConf(boolean bbConf) {
+    public void setBbConf(int bbConf) {
         this.bbConf = bbConf;
     }
 
-    public boolean getAssElev() {
+    public int getAssElev() {
         return assElev;
     }
 
-    public void setAssElev(boolean assElev) {
+    public void setAssElev(int assElev) {
         this.assElev = assElev;
     }
 
-    public boolean getCadBB() {
+    public int getCadBB() {
         return cadBB;
     }
 
-    public void setCadBB(boolean cadBB) {
+    public void setCadBB(int cadBB) {
         this.cadBB = cadBB;
     }
 
@@ -142,4 +146,30 @@ public class Aluguel {
     public void setSelectAcessorios(String selectAcessorios) {
         this.selectAcessorios = selectAcessorios;
     }
+
+    public BigDecimal getValorBbConf() {
+        return valorBbConf;
+    }
+
+    public void setValorBbConf(BigDecimal valorBbConf) {
+        this.valorBbConf = valorBbConf;
+    }
+
+    public BigDecimal getValorAssElev() {
+        return valorAssElev;
+    }
+
+    public void setValorAssElev(BigDecimal valorAssElev) {
+        this.valorAssElev = valorAssElev;
+    }
+
+    public BigDecimal getValorCadBB() {
+        return valorCadBB;
+    }
+
+    public void setValorCadBB(BigDecimal valorCadBB) {
+        this.valorCadBB = valorCadBB;
+    }
+    
+    
 }

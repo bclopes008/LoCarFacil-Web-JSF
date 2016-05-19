@@ -6,6 +6,7 @@
 package br.senac.pi4.bean;
 
 import br.senac.pi4.DAO.Aluguel;
+import java.math.BigDecimal;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -51,6 +52,13 @@ public class AluguelBean {
     
     public String resumo(){
         return "resumo";
+    }
+    
+    public String atulizaCarrinho(){
+        this.aluguel.setValorAssElev(new BigDecimal(aluguel.getAssElev() * 15));
+        this.aluguel.setValorBbConf(new BigDecimal(aluguel.getBbConf() * 15));
+        this.aluguel.setValorCadBB(new BigDecimal(aluguel.getCadBB() * 15));
+        return "protecao";
     }
     
 }

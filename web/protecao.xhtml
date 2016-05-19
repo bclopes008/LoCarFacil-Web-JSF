@@ -173,12 +173,12 @@
                         <div class="row ">
 
                             <div  class="col-md-3 col-sm-3 col-xs-3">
-                                <h:selectBooleanCheckbox value="#{aluguelBean.aluguel.bbConf}"/>Bebê Conforto
+                                Bebê Conforto
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
                                 <!--<input type="number" min="1" max="3" value="1"/>-->
-                                <p:spinner max="3" min="1" value="1"/>
+                                <p:spinner max="3" min="0" value="#{aluguelBean.aluguel.bbConf}"/>
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
@@ -194,12 +194,11 @@
                         <div class="row">
 
                             <div  class="col-md-3 col-sm-3 col-xs-3">
-                                <h:selectBooleanCheckbox value="#{aluguelBean.aluguel.assElev}"/>Assento Elevado
+                                Assento Elevado
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
-                                <!--<input type="number" min="0" max="3"/>-->
-                                <p:spinner max="3" min="1" value="1"/>
+                                <p:spinner max="3" min="0" value="#{aluguelBean.aluguel.assElev}"/>
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
@@ -215,11 +214,11 @@
                         <div class="row">
 
                             <div  class="col-md-3 col-sm-3 col-xs-3">
-                                <h:selectBooleanCheckbox value="#{aluguelBean.aluguel.cadBB}"/>Cadeira de Bebê
+                                Cadeira de Bebê
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
-                                <p:spinner max="3" min="1" value="1"/>
+                                <p:spinner max="3" min="0" value="#{aluguelBean.aluguel.cadBB}"/>
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
@@ -248,7 +247,10 @@
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
                                 <span>+ Detalhes</span>
                             </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 botoesDir">
+                                <p:commandButton id="btInfeDir" class="btn btn-primary" action="#{aluguelBean.atulizaCarrinho()}" value="Atualizar carrinho" ajax="false "/>
 
+                            </div>
                         </div>
 
 
@@ -263,7 +265,7 @@
 
                             <div class="col-md-6 col-sm-6 col-xs-6 botoesDir">
                                 <!--<p><a href="#"  id="btInfeDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>-->
-                                <p:commandButton id="btInfeDir" class="btn btn-primary" action="#{aluguelBean.resumo()}" value="Próximo" ajax="false "/>
+                                <p:commandButton id="btInfeDir" class="btn btn-primary" action="#{aluguelBean.resumo()}" value="Finalizar" ajax="false "/>
 
                             </div>
 
@@ -316,6 +318,16 @@
                             </tr>
                             <tr>
                                 <td class="tds tdEsquerda">Bebê Conforto</td>
+                                <td class="tds tdDireita"><h:outputText value="#{aluguelBean.aluguel.valorBbConf}">
+                                        <f:convertNumber type="currency" locale="pt-BR" />
+                                    </h:outputText></td>
+                            </tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Assento Elevado</td>
+                                <td class="tds tdDireita">R$20,00</td>
+                            </tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Cadeita de Bebê</td>
                                 <td class="tds tdDireita">R$20,00</td>
                             </tr>
                         </table>
