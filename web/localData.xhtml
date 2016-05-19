@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta charset="UTF-8"/>
         <title>Local e Data</title>
@@ -68,7 +70,7 @@
 
         <!--Aqui fica projeção da locação-->
 
-        <div class="container">	
+        <div class="container">
 
             <div class="row projecaoCor">
 
@@ -101,16 +103,15 @@
 
                     <h1>Local e Data </h1>
 
-                    <div class="row">
+                    <h:form>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12 botoesDir">
-                            <p><a href="escolherGrupo.html"  id="btSupDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 botoesDir">
+                                <p><a href="escolherGrupo.html"  id="btSupDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>
+                            </div>
+
                         </div>
-
-                    </div>
-
-
-                    <form action="#" method="POST" >
 
                         <div class="row cabRetira">
                             <h3>Local de Retirada do Automóvel</h3>
@@ -118,27 +119,39 @@
 
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <label for="localRetira" class="labelStyle">Localização</label><br/>
-                                <input type="text" id="localRetira" class="inputStyle" required="required" title="Local de Retirada do Automóvel" placeholder="Digite o local de retirada do Veiculo"/>
+                                <!--<label for="localRetira" class="labelStyle">Localização</label><br/>
+                                <input type="text" id="localRetira" class="inputStyle" required="required" title="Local de Retirada do Automóvel" placeholder="Digite o local de retirada do Veiculo"/>-->
+                                <h:outputLabel for="localRetira" class="labelStyle" value="Localização"/><br/>
+                                <h:inputText value="#{aluguelBean.aluguel.localizacaoRetirada}" id="localRetira" class="inputStyle" required="true" title="Local de Retirada do Automóvel"/>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <span class="labelStyle">Data de Retirada</span><br/>
-                                <input type="date" id="dataRetira" class="inputStyle" required="required" title="Data de Retirada"/>
+                                <!--<span class="labelStyle">Data de Retirada</span><br/>
+                                <input type="date" id="dataRetira" class="inputStyle" required="required" title="Data de Retirada"/>-->
+                                <h:outputLabel class="labelStyle" value="Data de Retirada"/>
+                                <p:calendar value="#{aluguelBean.aluguel.dataRetirada}" id="dataRetira" class="inputStyle" required="true" title="Data de Retirada"/>
                             </div>
 
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <span class="labelStyle">Hora da Retirada</span><br/>          
-                                <select id="horaRetira" required="required" title="Hora da Retirada">
+                                <!--<select id="horaRetira" required="required" title="Hora da Retirada">
                                     <option  selected="selected" value="" disabled="disabled">_:_</option>
                                     <option>00:00</option>
                                     <option>00:30</option>
                                     <option>01:00</option>
                                     <option>01:30</option>
 
-                                </select>
+                                </select>-->
+                                <!--<select id="horaRetira" required="required" title="Hora da Retirada">-->
+                                <h:selectOneMenu value="#{aluguelBean.aluguel.horaRetirada}" id="horaRetira" title="Hora da Retirada">
+                                    <f:selectItem itemLabel="__:__"/>
+                                    <f:selectItem itemValue="00:00" itemLabel="00:00"/>
+                                    <f:selectItem itemValue="00:30" itemLabel="00:30"/>
+                                    <f:selectItem itemValue="01:00" itemLabel="01:00"/>
+                                </h:selectOneMenu>
+                                <!--<h:inputText value="#{aluguelBean.aluguel.dataRetirada}"><f:convertDateTime pattern="hh:MM"/> </h:inputText>-->
                             </div>
                         </div><br/>
 
@@ -151,36 +164,46 @@
                         <div class="row pergunta">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <span>Devolução em outra loja?</span>
-
-                                <input type="radio" name="escolha" id="sim"/><label for="sim">Sim </label>
-
-                                <input type="radio" name="escolha" id="nao"/><label for="nao">Não </label>
+                                <h:selectOneRadio value="#{aluguelBean.aluguel.localizacaoDevolucao}">
+                                    <f:selectItem itemValue="#{aluguelBean.aluguel.localizacaoRetirada}" id="sim" itemLabel="Sim"/>
+                                    <f:selectItem itemValue="" id="nao" itemLabel="Não"/>
+                                </h:selectOneRadio>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <label for="localDevolucao" class="labelStyle">Localização</label><br/>
-                                <input type="text" id="localDevolucao" class="inputStyle" required="required" title="Local de Devolução do Automóvel" placeholder="Digite o local de Devolução do Veiculo"/>
+                                <!--<label for="localDevolucao" class="labelStyle">Localização</label><br/>
+                                <input type="text" id="localDevolucao" class="inputStyle" required="required" title="Local de Devolução do Automóvel" placeholder="Digite o local de Devolução do Veiculo"/>-->
+                                <h:outputLabel for="localDevolucao" class="labelStyle" value="Localização"/><br/>
+                                <h:inputText value="#{aluguelBean.aluguel.localizacaoDevolucao}" id="localDevolucao" class="inputStyle" title="Local de Devolução do Automóvel"/>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <span class="labelStyle">Data de Devolução</span><br/>
-                                <input type="date" id="dataDevolucao" class="inputStyle" required="required" title="Data de Devolução"/>
+                                <!--<span class="labelStyle">Data de Devolução</span><br/>
+                                <input type="date" id="dataDevolucao" class="inputStyle" required="required" title="Data de Devolução"/>-->
+                                <h:outputLabel class="labelStyle" value="Data de Devolução"/><br/>
+                                <p:calendar value="#{aluguelBean.aluguel.dataDevolucao}" id="dataDevolucao" class="inputStyle" required="true" title="Data de Devolução"/>
                             </div>
 
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <span class="labelStyle">Hora da Devolução</span><br/>
-                                <select id="horaDevolucao" required="required" title="Hora da Devolução">
+                                <!--<select id="horaDevolucao" required="required" title="Hora da Devolução">-->
+                                <!--<select id="horaDevolucao" title="Hora da Devolução">
                                     <option  selected="selected" value="" disabled="disabled">_:_</option>
                                     <option>00:00</option>
                                     <option>00:30</option>
                                     <option>01:00</option>
                                     <option>01:30</option>
-
-                                </select>
+                                </select>-->
+                                <h:selectOneMenu value="#{aluguelBean.aluguel.horaDevolucao}" id="horaDevolucao" title="Hora da Retirada">
+                                    <f:selectItem itemLabel="__:__"/>
+                                    <f:selectItem itemValue="00:00" itemLabel="00:00"/>
+                                    <f:selectItem itemValue="00:30" itemLabel="00:30"/>
+                                    <f:selectItem itemValue="01:00" itemLabel="01:00"/>
+                                </h:selectOneMenu>
                             </div>
                         </div>
 
@@ -190,12 +213,13 @@
                         <div class="row">
 
                             <div class="col-md-12 col-sm-12 col-xs-12 botoesDir">
-                                <p><a href="escolherGrupo.html"  id="btInfeDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>
+                                <!--<p><a href="escolherGrupo.html"  id="btInfeDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>-->
+                                <p:commandButton id="btInfeDir" class="btn btn-primary" action="#{aluguelBean.escolherGrupo()}" value="Próximo" ajax="false "/>
                             </div>
 
                         </div>
 
-                    </form>
+                    </h:form>
 
                 </section>
                 <!--Parte Lateral-->

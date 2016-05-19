@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta charset="UTF-8"/>
         <title>Proteção e Acessórios</title>
@@ -94,27 +96,27 @@
 
             </div>
 
-            <!--Aqui inicia a parte section -->
-            <div class="row t">
+            <h:form>
+                <!--Aqui inicia a parte section -->
+                <div class="row t">
 
-                <section class="col-md-8 col-sm-12 col-xs-12">
+                    <section class="col-md-8 col-sm-12 col-xs-12">
 
-                    <h1>Proteção e Acessórios </h1>
+                        <h1>Proteção e Acessórios </h1>
 
-                    <div class="row">
+                        <div class="row">
 
-                        <div class="col-md-6 col-sm-6 col-xs-6 botoesEsq">
-                            <p><a href="escolherGrupo.html"  id="btSupEs" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-menu-left" ></span> Voltar</a></p>
+                            <div class="col-md-6 col-sm-6 col-xs-6 botoesEsq">
+                                <p><a href="escolherGrupo.html"  id="btSupEs" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-menu-left" ></span> Voltar</a></p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-6 botoesDir">
+                                <p><a href="#"  id="btSupDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>
+                            </div>
+
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6 botoesDir">
-                            <p><a href="#"  id="btSupDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>
-                        </div>
 
-                    </div>
-
-
-                    <form action="#" method="POST" >
 
                         <div class="row cabH3">
                             <h3>Proteção para o Veiculo</h3>
@@ -122,38 +124,40 @@
                         </div>
 
 
+                        <h:selectOneRadio value="#{aluguelBean.aluguel.protecao}">
 
-                        <div class="row ">
+                            <div class="row ">
 
-                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                <input type="radio" name="Nprotecao" id="parcial"/> <label for="parcial">Proteção Parcial</label>   
-                            </div>	
-                            <div class="col-md-4 col-sm-4 col-xs-4 protecao">
-                                <span>R$ 28,00</span>
-                            </div>	
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <!--<input type="radio" name="Nprotecao" id="parcial"/> <label for="parcial">Proteção Parcial</label>-->
+                                    <f:selectItem itemValue="true" id="parcial" itemLabel="Sem Proteçao"/>
+                                </div>	
+                                <div class="col-md-4 col-sm-4 col-xs-4 protecao">
+                                    <span>R$ 28,00</span>
+                                </div>	
 
-                            <div class="col-md-4 col-sm-4 col-xs-4 protecao">
-                                <span>+ Detalhes</span>
+                                <div class="col-md-4 col-sm-4 col-xs-4 protecao">
+                                    <span>+ Detalhes</span>
+                                </div>
+
                             </div>
+                            <div class="row">
 
-                        </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <!--<input type="radio" name="Nprotecao" id="sem"/> <label for="sem">Sem Proteção</label>-->
+                                    <f:selectItem itemValue="false" id="sem" itemLabel="Sem Proteçao"/>
+                                </div>	
 
-                        <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4 protecao">
+                                    <span>R$ 0,00</span>
+                                </div>	
 
-                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                <input type="radio" name="Nprotecao" id="sem"/> <label for="sem">Sem Proteção</label>
-                            </div>	
+                                <div class="col-md-4 col-sm-4 col-xs-4 protecao">
+                                    <span>+ Detalhes</span>
+                                </div>
 
-                            <div class="col-md-4 col-sm-4 col-xs-4 protecao">
-                                <span>R$ 0,00</span>
-                            </div>	
-
-                            <div class="col-md-4 col-sm-4 col-xs-4 protecao">
-                                <span>+ Detalhes</span>
                             </div>
-
-                        </div>
-
+                        </h:selectOneRadio>
 
                         <hr/>
 
@@ -169,31 +173,12 @@
                         <div class="row ">
 
                             <div  class="col-md-3 col-sm-3 col-xs-3">
-                                <input type="checkbox" name="#" id="comforto"/> <label for="comforto">Bebê Comforto</label>
+                                <h:selectBooleanCheckbox value="#{aluguelBean.aluguel.bbConf}"/>Bebê Conforto
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
-                                <input type="number" min="0" max="3"/>
-                            </div>
-
-                            <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
-                                <span>R$ 15,00 / Diária</span>
-                            </div>
-
-                            <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
-                                <span>+ Detalhes</span>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div  class="col-md-3 col-sm-3 col-xs-3">
-                                <input type="checkbox" name="#" id="assento"/> <label for="assento">Assento Elevado</label>
-                            </div>
-
-                            <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
-                                <input type="number" min="0" max="3"/>
+                                <!--<input type="number" min="1" max="3" value="1"/>-->
+                                <p:spinner max="3" min="1" value="1"/>
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
@@ -209,11 +194,32 @@
                         <div class="row">
 
                             <div  class="col-md-3 col-sm-3 col-xs-3">
-                                <input type="checkbox" name="#" id="cadeira"/> <label for="cadeira">Cadeira de Bebê</label>
+                                <h:selectBooleanCheckbox value="#{aluguelBean.aluguel.assElev}"/>Assento Elevado
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
-                                <input type="number" min="0" max="3"/>
+                                <!--<input type="number" min="0" max="3"/>-->
+                                <p:spinner max="3" min="1" value="1"/>
+                            </div>
+
+                            <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
+                                <span>R$ 15,00 / Diária</span>
+                            </div>
+
+                            <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
+                                <span>+ Detalhes</span>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div  class="col-md-3 col-sm-3 col-xs-3">
+                                <h:selectBooleanCheckbox value="#{aluguelBean.aluguel.cadBB}"/>Cadeira de Bebê
+                            </div>
+
+                            <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
+                                <p:spinner max="3" min="1" value="1"/>
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
@@ -229,7 +235,7 @@
                         <div class="row ">
 
                             <div  class="col-md-3 col-sm-3 col-xs-3">
-                                <input type="checkbox" name="#" id="gps"/> <label for="gps">GPS</label>
+                                <h:selectBooleanCheckbox value="#{aluguelBean.aluguel.gps}"/>GPS
                             </div>
 
                             <div  class="col-md-3 col-sm-3 col-xs-3 acessorios">
@@ -246,114 +252,120 @@
                         </div>
 
 
-                    </form>
 
 
-                    <div class="row">
 
-                        <div class="col-md-6 col-sm-6 col-xs-6 botoesEsq">
-                            <p><a href="escolherGrupo.html"  id="btInfeEs" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-menu-left" ></span> Voltar</a></p>
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6 col-xs-6 botoesEsq">
+                                <p><a href="escolherGrupo.html"  id="btInfeEs" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-menu-left" ></span> Voltar</a></p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-6 botoesDir">
+                                <!--<p><a href="#"  id="btInfeDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>-->
+                                <p:commandButton id="btInfeDir" class="btn btn-primary" action="#{aluguelBean.resumo()}" value="Próximo" ajax="false "/>
+
+                            </div>
+
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6 botoesDir">
-                            <p><a href="#"  id="btInfeDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>
-                        </div>
 
-                    </div>
+                    </section>
+                    <!--Parte Lateral-->
+                    <aside class="col-md-4 col-sm-12 col-xs-12">
+                        <h1>Resumo da Reserva</h1>
 
-
-
-                </section>
-                <!--Parte Lateral-->
-                <aside class="col-md-4 col-sm-12 col-xs-12">
-                    <h1>Resumo da Reserva</h1>
-
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="thumbnail">
-                            <img src="resources/imagens/grupoA.png" alt="grupo A - Econômico" title="Grupo A - Econômico"/>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="thumbnail">
+                                <img src="resources/imagens/grupoA.png" alt="grupo A - Econômico" title="Grupo A - Econômico"/>
                                 <p class="infoIlustrativa">Imagem Ilustrativa</p>
                                 <div class="caption">
-                                    <h3>Grupo A - Econômico</h3>
+                                    <h3>Grupo <h:outputLabel value="#{aluguelBean.aluguel.grupo}"/></h3>
                                     <p>Fiat Novo Uno 1.0 ou similar</p>
                                 </div>
+                            </div>
                         </div>
-                    </div>
 
 
 
-                    <table class="tab" id="marg">
-                        <tr><td class="cab" colspan="2">Resumo dos Valores - Preço Estimado</td></tr>
-                    </table>
+                        <table class="tab" id="marg">
+                            <tr><td class="cab" colspan="2">Resumo dos Valores - Preço Estimado</td></tr>
+                        </table>
 
-                    <table class="tab">
-                        <tr><td class="cab" colspan="2">Diária</td></tr>
-                        <tr>
-                            <td class="tds tdEsquerda">Diária</td> 
-                            <td class="tds tdDireita">R$100,00</td>
-                        </tr>
-                    </table>
+                        <table class="tab">
+                            <tr><td class="cab" colspan="2">Diária</td></tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Diária</td> 
+                                <td class="tds tdDireita">R$100,00</td>
+                            </tr>
+                        </table>
 
-                    <table class="tab">
-                        <tr><td class="cab" colspan="2">Proteções</td></tr>
-                        <tr>
-                            <td class="tds tdEsquerda">Proteção Parcial</td> 
-                            <td class="tds tdDireita">R$84,00</td>
-                        </tr>
-                    </table>
+                        <table class="tab">
+                            <tr><td class="cab" colspan="2">Proteções</td></tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Proteção Parcial</td> 
+                                <td class="tds tdDireita">R$84,00</td>
+                            </tr>
+                        </table>
 
-                    <table class="tab">
-                        <tr><td class="cab" colspan="2">Acessórios</td></tr>
-                        <tr>
-                            <td class="tds tdEsquerda">GPS</td> 
-                            <td class="tds tdDireita">R$30,00</td>
-                        </tr>
-                        <tr>
-                            <td class="tds tdEsquerda">Bebê Conforto</td>
-                            <td class="tds tdDireita">R$20,00</td>
-                        </tr>
-                    </table>
+                        <table class="tab">
+                            <tr><td class="cab" colspan="2">Acessórios</td></tr>
+                            <tr>
+                                <td class="tds tdEsquerda">GPS</td> 
+                                <td class="tds tdDireita">R$30,00</td>
+                            </tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Bebê Conforto</td>
+                                <td class="tds tdDireita">R$20,00</td>
+                            </tr>
+                        </table>
 
-                    <table class="tab">
-                        <tr><td class="cab" colspan="2">Valor Total</td></tr>
-                        <tr>
-                            <td class="tds tdEsquerda">Total</td>
-                            <td class="tds tdDireita">R$234,00</td>
-                        </tr>
-                    </table>
+                        <table class="tab">
+                            <tr><td class="cab" colspan="2">Valor Total</td></tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Total</td>
+                                <td class="tds tdDireita">R$234,00</td>
+                            </tr>
+                        </table>
 
-                    <table class="tab">
-                        <tr><td class="cab" colspan="2">Localidade</td></tr>
-                        <tr>
-                            <td class="tds tdEsquerda">Retira</td> 
-                            <td class="tds tdDireita">São Paulo</td>
-                        </tr>
-                        <tr>
-                            <td class="tds tdEsquerda">Devolução</td>
-                            <td class="tds tdDireita">São Paulo</td>
-                        </tr>
-                    </table>
+                        <table class="tab">
+                            <tr><td class="cab" colspan="2">Localidade</td></tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Retira</td> 
+                                <td class="tds tdDireita"><h:outputLabel value="#{aluguelBean.aluguel.localizacaoRetirada}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Devolução</td>
+                                <td class="tds tdDireita"><h:outputLabel value="#{aluguelBean.aluguel.localizacaoDevolucao}"/></td>
+                            </tr>
+                        </table>
 
-                    <table class="tab">
-                        <tr><td class="cab" colspan="3">Data e Hora</td></tr>
-                        <tr>
-                            <td class="tds tdEsquerda">Retira</td> 
-                            <td class="tds tdDireita">07/04/2016</td>
-                            <td class="tds tdDireita">20:00</td>
-                        </tr>
-                        <tr>
-                            <td class="tds tdEsquerda">Devolução</td>
-                            <td class="tds tdDireita">08/04/2016</td>
-                            <td class="tds tdDireita">20:00</td>
-                        </tr>
-                    </table>
+                        <table class="tab">
+                            <tr><td class="cab" colspan="3">Data e Hora</td></tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Retira</td> 
+                                <td class="tds tdDireita"><h:outputLabel value="#{aluguelBean.aluguel.dataRetirada}">
+                                        <f:convertDateTime locale="pt-BR" 
+                                                           pattern="dd/MM/yyyy" /></h:outputLabel></td>
+                                <td class="tds tdDireita"><h:outputLabel value="#{aluguelBean.aluguel.horaRetirada}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tds tdEsquerda">Devolução</td>
+                                <td class="tds tdDireita"><h:outputLabel value="#{aluguelBean.aluguel.dataDevolucao}">
+                                        <f:convertDateTime locale="pt-BR" 
+                                                           pattern="dd/MM/yyyy" /></h:outputLabel></td>
+                                <td class="tds tdDireita"><h:outputLabel value="#{aluguelBean.aluguel.horaDevolucao}"/></td>
+                            </tr>
+                        </table>
 
-                </aside>
+                    </aside>
 
-            </div>
+                </div>
+            </h:form>
 
 
         </div>
-         <!--Inicio do Rodape-->
+        <!--Inicio do Rodape-->
         <footer class="row">
 
             <div class="col-md-3 col-sm-6 col-xs-8">
