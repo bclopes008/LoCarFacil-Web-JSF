@@ -8,6 +8,8 @@ package br.senac.pi4.bean;
 import br.senac.pi4.DAO.Aluguel;
 import br.senac.pi4.util.Mensagem;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -39,8 +41,21 @@ public class AluguelBean {
         return "escolherGrupo";
     }
 
-    public String carroSelecionado(String grupo) {
+    public String carroSelecionado(String grupo, double valorGrupo) {
         this.aluguel.setGrupo(grupo);
+        this.aluguel.setValorGrupo(new BigDecimal(valorGrupo));
+        //parei aqui
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        Date data = aluguel.getDataRetirada();
+        String dtRt = fmt.format(data);
+        dtRt = dtRt.substring(0, 2);
+        int diaRet = Integer.parseInt(dtRt);
+        
+        data = aluguel.getDataDevolucao();
+        String dtDv = fmt.format(data);
+        dtDv = dtDv.substring(0, 2);
+        int diaDev = Integer.parseInt(dtDv);
+        this.aluguel.setDias((diaDev - diaRet) + 1);
         return "escolherGrupo.xhtml?faces-redirect=true";
     }
 
@@ -68,7 +83,11 @@ public class AluguelBean {
         this.aluguel.setValorBbConf(new BigDecimal(bbConf));
         this.aluguel.setValorCadBB(new BigDecimal(cadBb));
         this.aluguel.setValorGps(new BigDecimal(gps));
-        this.aluguel.setValorTotal(new BigDecimal(assElev + bbConf + cadBb + 100 + gps));
+        //parei aqui
+        double vTotal = aluguel.getValorGrupo().doubleValue() * aluguel.getDias();
+        this.aluguel.setValTotalGrupo(new BigDecimal(vTotal));
+        
+        this.aluguel.setValorTotal(new BigDecimal(assElev + bbConf + cadBb + gps + vTotal));
         System.err.println(aluguel.getValorTotal());
         if (op == 0) {
             return "protecao.xhtml?faces-redirect=true";

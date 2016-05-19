@@ -27,12 +27,15 @@ public class Aluguel {
     private int assElev = 0;
     private int cadBB = 0;
     private int qtdGps = 0;
+    private int dias;
     private String selectAcessorios;
     private BigDecimal valorBbConf;
     private BigDecimal valorAssElev;
     private BigDecimal valorCadBB;
     private BigDecimal valorGps;
     private BigDecimal valorTotal;
+    private BigDecimal valorGrupo;
+    private BigDecimal valTotalGrupo;
 
     public Aluguel() {
     }
@@ -188,4 +191,29 @@ public class Aluguel {
     public void setValorTotal(BigDecimal valorTotal) {
         this.valorTotal = valorTotal;
     }
+
+    public BigDecimal getValorGrupo() {
+        return valorGrupo;
+    }
+
+    public void setValorGrupo(BigDecimal valorGrupo) {
+        this.valorGrupo = valorGrupo;
+    }
+
+    public BigDecimal getValTotalGrupo() {
+        return valTotalGrupo;
+    }
+
+    public void setValTotalGrupo(BigDecimal valTotalGrupo) {
+        this.valTotalGrupo = valTotalGrupo;
+    }
+
+    public int getDias() {
+        return dias;
+    }
+
+    public void setDias(int dias) {
+        this.dias = dias;
+    }   
+    
 }
