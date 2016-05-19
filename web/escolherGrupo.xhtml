@@ -501,6 +501,18 @@
                                 <td class="tds tdDireita"><h:outputLabel value="#{aluguelBean.aluguel.grupo}"/></td>
                             </tr>
                             <tr>
+                                <td class="tds tdEsquerda">Diária</td> 
+                                <td class="tds tdDireita"><h:outputText value="#{aluguelBean.aluguel.valorGrupo}">
+                                        <f:convertNumber type="currency" locale="pt-BR" />
+                                    </h:outputText></td>
+                            </tr>
+                            <tr>
+                                <td class="tds tdEsquerda"><h:outputLabel value="#{aluguelBean.aluguel.dias}"/> dia(s)</td>
+                                <td class="tds tdDireita"><h:outputText value="#{aluguelBean.aluguel.valTotalGrupo}">
+                                        <f:convertNumber type="currency" locale="pt-BR" />
+                                    </h:outputText></td>
+                            </tr>
+                            <tr>
                                 <td class="tds tdEsquerda">Retirada</td> 
                                 <td class="tds tdDireita"><h:outputLabel value="#{aluguelBean.aluguel.localizacaoRetirada}"/></td>
                             </tr>

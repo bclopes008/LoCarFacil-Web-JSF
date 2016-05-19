@@ -104,14 +104,6 @@
 
                         <h1 class="cabPrincipalSection">Reserva da Locação</h1>
 
-                        <div class="row">
-
-                            <div class="col-md-6 col-sm-6 col-xs-6 botoesEsq">
-                                <p:commandButton id="btSupEs" class="btn btn-primary" action="#{aluguelBean.novaReserva()}" value="Nova Reserva" ajax="false "/>
-                            </div>
-
-                        </div>
-
                         <h1 id="prezadoCliente">Prezado(a): Fulano de Tall</h1>
                         <hr/>
 
@@ -123,7 +115,7 @@
                             </div>
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <h1 id="numeroReserva">123456</h1>
+                                <h1 id="numeroReserva"><h:outputLabel value="#{aluguelBean.aluguel.id}"/></h1>
                             </div>
 
                         </div>
@@ -255,7 +247,15 @@
                             <tr><td class="cab" colspan="2">Diária</td></tr>
                             <tr>
                                 <td class="tds tdEsquerda">Diária</td> 
-                                <td class="tds tdDireita">R$100,00</td>
+                                <td class="tds tdDireita"><h:outputText value="#{aluguelBean.aluguel.valorGrupo}">
+                                        <f:convertNumber type="currency" locale="pt-BR" />
+                                    </h:outputText></td>
+                            </tr>
+                            <tr>
+                                <td class="tds tdEsquerda"><h:outputLabel value="#{aluguelBean.aluguel.dias}"/> dia(s)</td>
+                                <td class="tds tdDireita"><h:outputText value="#{aluguelBean.aluguel.valTotalGrupo}">
+                                        <f:convertNumber type="currency" locale="pt-BR" />
+                                    </h:outputText></td>
                             </tr>
                         </table>
 

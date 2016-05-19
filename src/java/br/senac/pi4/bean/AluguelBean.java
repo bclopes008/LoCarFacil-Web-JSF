@@ -10,6 +10,7 @@ import br.senac.pi4.util.Mensagem;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -56,6 +57,7 @@ public class AluguelBean {
         dtDv = dtDv.substring(0, 2);
         int diaDev = Integer.parseInt(dtDv);
         this.aluguel.setDias((diaDev - diaRet) + 1);
+        resumo(0);
         return "escolherGrupo.xhtml?faces-redirect=true";
     }
 
@@ -67,7 +69,7 @@ public class AluguelBean {
             flash.put("mensagem", new Mensagem("erro", "error"));
             return "escolherGrupo";
         }
-        return "protecao";
+        return resumo(0);
     }
 
     public String localData() {
@@ -75,10 +77,10 @@ public class AluguelBean {
     }
 
     public String resumo(int op) {
-        double assElev = aluguel.getAssElev() * 15;
-        double bbConf = aluguel.getBbConf() * 15;
-        double cadBb = aluguel.getCadBB() * 15;
-        double gps = aluguel.getQtdGps() * 15;
+        double assElev = aluguel.getAssElev() * 15 * aluguel.getDias();
+        double bbConf = aluguel.getBbConf() * 15 * aluguel.getDias();
+        double cadBb = aluguel.getCadBB() * 15 * aluguel.getDias();
+        double gps = aluguel.getQtdGps() * 15 * aluguel.getDias();
         this.aluguel.setValorAssElev(new BigDecimal(assElev));
         this.aluguel.setValorBbConf(new BigDecimal(bbConf));
         this.aluguel.setValorCadBB(new BigDecimal(cadBb));
@@ -89,18 +91,17 @@ public class AluguelBean {
         
         this.aluguel.setValorTotal(new BigDecimal(assElev + bbConf + cadBb + gps + vTotal));
         System.err.println(aluguel.getValorTotal());
+        
+        //Número aleatório
+        Random gerador = new Random();
+        do{
+            this.aluguel.setId(gerador.nextInt());
+        }while (aluguel.getId() < 1);
         if (op == 0) {
             return "protecao.xhtml?faces-redirect=true";
         } else {
             return "resumo";
         }
-    }
-
-    public String atulizaCarrinho() {
-        this.aluguel.setValorAssElev(new BigDecimal(aluguel.getAssElev() * 15));
-        this.aluguel.setValorBbConf(new BigDecimal(aluguel.getBbConf() * 15));
-        this.aluguel.setValorCadBB(new BigDecimal(aluguel.getCadBB() * 15));
-        return "protecao.xhtml?faces-redirect=true";
     }
 
     public String novaReserva() {

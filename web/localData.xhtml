@@ -146,10 +146,30 @@
                                 <h:selectOneMenu value="#{aluguelBean.aluguel.horaRetirada}" id="horaRetira" title="Hora da Retirada">
                                     <f:selectItem itemLabel="__:__"/>
                                     <f:selectItem itemValue="00:00" itemLabel="00:00"/>
-                                    <f:selectItem itemValue="00:30" itemLabel="00:30"/>
-                                    <f:selectItem itemValue="01:00" itemLabel="01:00"/>
+                                    <f:selectItem itemValue="01:30" itemLabel="01:00"/>
+                                    <f:selectItem itemValue="02:00" itemLabel="02:00"/>
+                                    <f:selectItem itemValue="03:00" itemLabel="03:00"/>
+                                    <f:selectItem itemValue="04:00" itemLabel="04:00"/>
+                                    <f:selectItem itemValue="05:00" itemLabel="05:00"/>
+                                    <f:selectItem itemValue="06:00" itemLabel="06:00"/>
+                                    <f:selectItem itemValue="07:00" itemLabel="07:00"/>
+                                    <f:selectItem itemValue="08:00" itemLabel="08:00"/>
+                                    <f:selectItem itemValue="09:00" itemLabel="09:00"/>
+                                    <f:selectItem itemValue="10:00" itemLabel="10:00"/>
+                                    <f:selectItem itemValue="11:00" itemLabel="11:00"/>
+                                    <f:selectItem itemValue="12:00" itemLabel="12:00"/>
+                                    <f:selectItem itemValue="13:00" itemLabel="13:00"/>
+                                    <f:selectItem itemValue="14:00" itemLabel="14:00"/>
+                                    <f:selectItem itemValue="15:00" itemLabel="15:00"/>
+                                    <f:selectItem itemValue="16:00" itemLabel="16:00"/>
+                                    <f:selectItem itemValue="17:00" itemLabel="17:00"/>
+                                    <f:selectItem itemValue="18:00" itemLabel="18:00"/>
+                                    <f:selectItem itemValue="19:00" itemLabel="19:00"/>
+                                    <f:selectItem itemValue="20:00" itemLabel="20:00"/>
+                                    <f:selectItem itemValue="21:00" itemLabel="21:00"/>
+                                    <f:selectItem itemValue="22:00" itemLabel="22:00"/>
+                                    <f:selectItem itemValue="23:00" itemLabel="23:00"/>
                                 </h:selectOneMenu>
-                                <!--<h:inputText value="#{aluguelBean.aluguel.dataRetirada}"><f:convertDateTime pattern="hh:MM"/> </h:inputText>-->
                             </div>
                         </div><br/>
 
@@ -162,9 +182,9 @@
                         <div class="row pergunta">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <span>Devolução em outra loja?</span>
-                                <h:selectOneRadio value="#{aluguelBean.aluguel.localizacaoDevolucao}">
-                                    <f:selectItem itemValue="#{aluguelBean.aluguel.localizacaoRetirada}" id="sim" itemLabel="Sim"/>
-                                    <f:selectItem itemValue="" id="nao" itemLabel="Não"/>
+                                <h:selectOneRadio value="#{aluguelBean.aluguel.protecao}">
+                                    <f:selectItem itemValue="true" id="sim" itemLabel="Sim"/>
+                                    <f:selectItem itemValue="false" id="nao" itemLabel="Não"/>
                                 </h:selectOneRadio>
                             </div>
                         </div>
@@ -199,8 +219,29 @@
                                 <h:selectOneMenu value="#{aluguelBean.aluguel.horaDevolucao}" id="horaDevolucao" title="Hora da Retirada">
                                     <f:selectItem itemLabel="__:__"/>
                                     <f:selectItem itemValue="00:00" itemLabel="00:00"/>
-                                    <f:selectItem itemValue="00:30" itemLabel="00:30"/>
-                                    <f:selectItem itemValue="01:00" itemLabel="01:00"/>
+                                    <f:selectItem itemValue="01:30" itemLabel="01:00"/>
+                                    <f:selectItem itemValue="02:00" itemLabel="02:00"/>
+                                    <f:selectItem itemValue="03:00" itemLabel="03:00"/>
+                                    <f:selectItem itemValue="04:00" itemLabel="04:00"/>
+                                    <f:selectItem itemValue="05:00" itemLabel="05:00"/>
+                                    <f:selectItem itemValue="06:00" itemLabel="06:00"/>
+                                    <f:selectItem itemValue="07:00" itemLabel="07:00"/>
+                                    <f:selectItem itemValue="08:00" itemLabel="08:00"/>
+                                    <f:selectItem itemValue="09:00" itemLabel="09:00"/>
+                                    <f:selectItem itemValue="10:00" itemLabel="10:00"/>
+                                    <f:selectItem itemValue="11:00" itemLabel="11:00"/>
+                                    <f:selectItem itemValue="12:00" itemLabel="12:00"/>
+                                    <f:selectItem itemValue="13:00" itemLabel="13:00"/>
+                                    <f:selectItem itemValue="14:00" itemLabel="14:00"/>
+                                    <f:selectItem itemValue="15:00" itemLabel="15:00"/>
+                                    <f:selectItem itemValue="16:00" itemLabel="16:00"/>
+                                    <f:selectItem itemValue="17:00" itemLabel="17:00"/>
+                                    <f:selectItem itemValue="18:00" itemLabel="18:00"/>
+                                    <f:selectItem itemValue="19:00" itemLabel="19:00"/>
+                                    <f:selectItem itemValue="20:00" itemLabel="20:00"/>
+                                    <f:selectItem itemValue="21:00" itemLabel="21:00"/>
+                                    <f:selectItem itemValue="22:00" itemLabel="22:00"/>
+                                    <f:selectItem itemValue="23:00" itemLabel="23:00"/>
                                 </h:selectOneMenu>
                             </div>
                         </div>
