@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta charset="UTF-8"/>
         <title>Escolher Grupo de Automóveis</title>
@@ -15,88 +16,86 @@
         <h:outputScript name="js/bootstrap.min.js" />
     </h:head>
     <h:body>
+        <h:form>
 
+            <header class="row">
 
-        <header class="row">
+                <nav class="col-md-12 menuNav">
 
-            <nav class="col-md-12 menuNav">
+                    <nav class="navbar navbar-inverse" >
 
-                <nav class="navbar navbar-inverse" >
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="#" id="retorno">LoCarFácil</a>
 
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#" id="retorno">LoCarFácil</a>
+                            </div>
+                            <!--Menu Normal-->	
+                            <div class="menuNavNormal">
+                                <ul class="nav navbar-nav" >
+                                    <li><a href="protecao.html">Alugue um Carro</a></li>
+                                    <li><a href="#">Minha Área</a></li>
+                                    <li><a href="listagemProdutos.html">Grupo de Carros</a></li> 
+                                    <li><a href="#">Pesquisar Lojas</a></li>
+                                    <li><a href="#">Devolver Aluguel</a></li> 							
+
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                </ul>
+                            </div>
+                            <!--Menu Small-->	
+                            <div class="btn-group menuNavSmall">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Menu <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="protecao.html">Alugue um Carro</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Minha Área</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="listagemProdutos.html">Grupo de Carros</a></li> 
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Pesquisar Lojas</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Devolver Aluguel</a></li>		
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                </ul>
+                            </div>
 
                         </div>
-                        <!--Menu Normal-->	
-                        <div class="menuNavNormal">
-                            <ul class="nav navbar-nav" >
-                                <li><a href="protecao.html">Alugue um Carro</a></li>
-                                <li><a href="#">Minha Área</a></li>
-                                <li><a href="listagemProdutos.html">Grupo de Carros</a></li> 
-                                <li><a href="#">Pesquisar Lojas</a></li>
-                                <li><a href="#">Devolver Aluguel</a></li> 							
+                    </nav>
 
-                            </ul>
-
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                            </ul>
-                        </div>
-                        <!--Menu Small-->	
-                        <div class="btn-group menuNavSmall">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Menu <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="protecao.html">Alugue um Carro</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Minha Área</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="listagemProdutos.html">Grupo de Carros</a></li> 
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Pesquisar Lojas</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Devolver Aluguel</a></li>		
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
                 </nav>
+            </header>
+            <!--Aqui fica projeção da locação-->
 
-            </nav>
-        </header>
+            <div class="container">	
 
-        <!--Aqui fica projeção da locação-->
+                <div class="row projecaoCor">
 
-        <div class="container">	
+                    <div class="col-md-3 hidden-sm hidden-xs">
+                        <p class="projecao"><img src="resources/imagens/number1Preto.png" alt="Passo 1"/> Local e Data</p>
+                    </div>
 
-            <div class="row projecaoCor">
+                    <div class="col-md-2 hidden-sm hidden-xs">
+                        <p class="projecao local"><img src="resources/imagens/number2Branco.png" alt="Passo 2"/> Escolher Grupo</p>
+                    </div>
 
-                <div class="col-md-3 hidden-sm hidden-xs">
-                    <p class="projecao"><img src="resources/imagens/number1Preto.png" alt="Passo 1"/> Local e Data</p>
+                    <div class="col-md-3 hidden-sm hidden-xs">
+                        <p class="projecao"><img src="resources/imagens/number3Preto.png" alt="Passo 3"/> Proteção e Acessórios</p>
+                    </div>
+
+                    <div class="col-md-2 hidden-sm hidden-xs">
+                        <p class="projecao"><img src="resources/imagens/number4Preto.png" alt="Passo 4"/> Indentificação</p>
+                    </div>
+
+                    <div class="col-md-2 hidden-sm hidden-xs">
+                        <p class="projecao"><img src="resources/imagens/number5Preto.png" alt="Passo 5"/> Resumo</p>
+                    </div>
+
                 </div>
 
-                <div class="col-md-2 hidden-sm hidden-xs">
-                    <p class="projecao local"><img src="resources/imagens/number2Branco.png" alt="Passo 2"/> Escolher Grupo</p>
-                </div>
-
-                <div class="col-md-3 hidden-sm hidden-xs">
-                    <p class="projecao"><img src="resources/imagens/number3Preto.png" alt="Passo 3"/> Proteção e Acessórios</p>
-                </div>
-
-                <div class="col-md-2 hidden-sm hidden-xs">
-                    <p class="projecao"><img src="resources/imagens/number4Preto.png" alt="Passo 4"/> Indentificação</p>
-                </div>
-
-                <div class="col-md-2 hidden-sm hidden-xs">
-                    <p class="projecao"><img src="resources/imagens/number5Preto.png" alt="Passo 5"/> Resumo</p>
-                </div>
-
-            </div>
-
-            <h:form>
                 <!--Aqui inicia a parte section -->
                 <div class="row t">
 
@@ -107,11 +106,11 @@
                         <div class="row">
 
                             <div class="col-md-6 col-sm-6 col-xs-6 botoesEsq">
-                                <p><a href="localData.html"  id="btSupEs" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-menu-left" ></span> Voltar</a></p>
+                                <p:commandButton id="btSupEs" class="btn btn-primary" action="#{aluguelBean.localData()}" value="Voltar" ajax="false "/>
                             </div>
 
                             <div class="col-md-6 col-sm-6 col-xs-6 botoesDir">
-                                <p><a href="protecao.html"  id="btSupDir" class="btn btn-primary" role="button">Proximo <span class="glyphicon glyphicon-menu-right"></span></a></p>
+                                <p:commandButton id="btSupDir" class="btn btn-primary" action="#{aluguelBean.protecao()}" value="Próximo" ajax="false "/>
                             </div>
 
                         </div>
@@ -478,7 +477,7 @@
                         <div class="row">
 
                             <div class="col-md-6 col-sm-6 col-xs-6 botoesEsq">
-                                <p><a href="localData.html"  id="btInfeEs" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-menu-left" ></span> Voltar</a></p>
+                                <p:commandButton id="btInfeEs" class="btn btn-primary" action="#{aluguelBean.localData()}" value="Voltar" ajax="false "/>
                             </div>
 
                             <div class="col-md-6 col-sm-6 col-xs-6 botoesDir">
@@ -532,49 +531,53 @@
                     </aside>
 
                 </div>
-            </h:form>
 
 
-        </div>
-        <!--Inicio do Rodape-->
-        <footer class="row">
-
-            <div class="col-md-3 col-sm-6 col-xs-8">
-                <a href="#"><img src="resources/imagens/Fale.png" alt="Fale Conosco" title="Fale Conosco"/></a>
-                <div class="caption">
-                    <a href="#"><h3 id="fale">Fale Conosco</h3></a>
-                </div>
             </div>
+            <!--Inicio do Rodape-->
+            <footer class="row">
 
-            <div class="col-md-3 col-sm-6 col-xs-8">
-                <a href="#"><img src="resources/imagens/Central.png" alt="Central de Resevas" title="Central de Resevas"/></a>
-                <div class="caption">
-                    <a href="#"><h3>Central de Resevas</h3></a>
+                <div class="col-md-3 col-sm-6 col-xs-8">
+                    <a href="#"><img src="resources/imagens/Fale.png" alt="Fale Conosco" title="Fale Conosco"/></a>
+                    <div class="caption">
+                        <a href="#"><h3 id="fale">Fale Conosco</h3></a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 col-xs-8">
-                <a href="#"><img src="resources/imagens/Perguntas.png" alt="Perguntas Frequentes" title="Perguntas Frequentes"/></a>
-                <div class="caption">
-                    <a href="#"><h3>Perguntas Frequentes</h3></a>
+                <div class="col-md-3 col-sm-6 col-xs-8">
+                    <a href="#"><img src="resources/imagens/Central.png" alt="Central de Resevas" title="Central de Resevas"/></a>
+                    <div class="caption">
+                        <a href="#"><h3>Central de Resevas</h3></a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 col-xs-8">
-                <a href="#"><img src="resources/imagens/Assistência.png" alt="Assistência Tecnica" title="Assistência Tecnica"/></a>
-                <div class="caption">
-                    <a href="#"><h3>Assistência Tecnica</h3></a>
+                <div class="col-md-3 col-sm-6 col-xs-8">
+                    <a href="#"><img src="resources/imagens/Perguntas.png" alt="Perguntas Frequentes" title="Perguntas Frequentes"/></a>
+                    <div class="caption">
+                        <a href="#"><h3>Perguntas Frequentes</h3></a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12" id="voltarTopo">
-                    <p><a href="#retorno">Voltar ao Topo <span class="glyphicon glyphicon-menu-up" ></span></a></p>
+                <div class="col-md-3 col-sm-6 col-xs-8">
+                    <a href="#"><img src="resources/imagens/Assistência.png" alt="Assistência Tecnica" title="Assistência Tecnica"/></a>
+                    <div class="caption">
+                        <a href="#"><h3>Assistência Tecnica</h3></a>
+                    </div>
                 </div>
-            </div>
 
-        </footer>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12" id="voltarTopo">
+                        <p><a href="#retorno">Voltar ao Topo <span class="glyphicon glyphicon-menu-up" ></span></a></p>
+                    </div>
+                </div>
 
+            </footer>
+        </h:form>
     </h:body>
+    <ui:fragment rendered="#{flash.mensagem != null}">
+        <script>
+            alert("Favor escolher um grupo de veículos!");
+        </script>
+    </ui:fragment>
 </html>
 

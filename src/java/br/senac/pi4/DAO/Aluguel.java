@@ -23,14 +23,16 @@ public class Aluguel {
     private String horaDevolucao;
     private String grupo;
     private boolean protecao;
-    private int bbConf;
-    private int assElev;
-    private int cadBB;
-    private boolean gps;
+    private int bbConf = 0;
+    private int assElev = 0;
+    private int cadBB = 0;
+    private int qtdGps = 0;
     private String selectAcessorios;
     private BigDecimal valorBbConf;
     private BigDecimal valorAssElev;
     private BigDecimal valorCadBB;
+    private BigDecimal valorGps;
+    private BigDecimal valorTotal;
 
     public Aluguel() {
     }
@@ -131,12 +133,12 @@ public class Aluguel {
         this.cadBB = cadBB;
     }
 
-    public boolean isGps() {
-        return gps;
+    public int getQtdGps() {
+        return qtdGps;
     }
 
-    public void setGps(boolean gps) {
-        this.gps = gps;
+    public void setQtdGps(int qtdGps) {
+        this.qtdGps = qtdGps;
     }
 
     public String getSelectAcessorios() {
@@ -170,6 +172,20 @@ public class Aluguel {
     public void setValorCadBB(BigDecimal valorCadBB) {
         this.valorCadBB = valorCadBB;
     }
-    
-    
+
+    public BigDecimal getValorGps() {
+        return valorGps;
+    }
+
+    public void setValorGps(BigDecimal valorGps) {
+        this.valorGps = valorGps;
+    }
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
 }
